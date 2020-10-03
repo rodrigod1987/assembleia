@@ -1,0 +1,18 @@
+<button class="btn btn-success mb-2" [routerLink]="['nova']">Nova Pauta</button>
+
+<table class="table stripped">
+    <thead>
+        <th>Pauta</th>
+        <th>Data</th>
+        <th>Situação</th>
+        <th>Votação</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let pauta of pautas">
+        <td>{{pauta.descricao}}</td>
+        <td>{{pauta.data}}</td>
+        <td>{{pauta.situacao}}</td>
+        <td><button class="btn btn-primary" value="detalhes" [routerLink]="[pauta.id]">Detalhes desta sessão</button></td>
+    </tr>
+    </tbody>
+</table>

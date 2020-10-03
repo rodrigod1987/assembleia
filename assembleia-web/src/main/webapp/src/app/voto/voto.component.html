@@ -1,0 +1,28 @@
+<div *ngIf="pauta">
+    <h3>Pauta:</h3>
+    <h2>{{pauta.descricao}}</h2>
+    
+    <h4>Tempo restante: {{tempoRestante}}</h4>
+    
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="sim" [(ngModel)]="resposta" name="resposta" value="Sim">
+                <label for="resposta">Sim</label><br>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="female" [(ngModel)]="resposta" name="resposta" value="Nao" checked>
+                <label for="resposta">Não</label><br>
+            </div>
+        </div>
+        <div class="col-md-3"></div>    
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8"><button class="btn btn-primary btn-large btn-block" (click)="votar()">Votar</button></div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

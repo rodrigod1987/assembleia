@@ -1,0 +1,9 @@
+.classpath
+.project
+.settings/*
+target/*
+
+src/main/webapp/dist/*
+src/main/webapp/e2e/*
+src/main/webapp/node/*
+src/main/webapp/node_modules/*

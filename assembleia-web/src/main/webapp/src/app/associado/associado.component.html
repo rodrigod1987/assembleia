@@ -1,0 +1,13 @@
+<h2>Associado</h2>
+
+<form [formGroup]="form"   (ngSubmit)="entrar()">
+    <div class="form-group">
+        <input type="text" formControlName="nome" class="form-control" name="nome" placeholder="Nome do associado">
+    </div>
+
+    <div class="form-group">
+        <input type="number" formControlName="cpf" class="form-control" name="cpf" placeholder="CPF do associado">
+    </div>
+    
+    <button class="btn btn-primary">Entrar</button>
+</form>

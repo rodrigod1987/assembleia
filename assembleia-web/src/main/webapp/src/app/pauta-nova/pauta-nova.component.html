@@ -1,0 +1,8 @@
+<h2>Nova Pauta</h2>
+
+<form [formGroup]="form" (ngSubmit)="nova()">
+    <div class="form-group">
+        <input type="text" formControlName="descricao" class="form-control" name="descricao" placeholder="Descrição da Pauta">
+    </div>
+    <button class="btn btn-primary">Salvar</button>
+</form>
