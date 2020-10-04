@@ -1,0 +1,1 @@
+web: java -Dserver.port=$PORT -jar assembleia-api/target/assembleia-api-2.3.4.RELEASE.jar
