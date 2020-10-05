@@ -28,13 +28,20 @@ export class PautaEditComponent implements OnInit {
 
   ngOnInit(): void {
 
-    const id =+ this.activatedRoute.snapshot.paramMap.get('id');
+    let associado = JSON.parse(sessionStorage.getItem('associado'));
+    if (associado) {
+      const id =+ this.activatedRoute.snapshot.paramMap.get('id');
     
-    this.httpClient.get(this.apiUrl+"/v1/pauta/"+id)
-      .subscribe(response => this.pauta = response);
+      this.httpClient.get(this.apiUrl+"/v1/pauta/"+id)
+        .subscribe(response => this.pauta = response);
+      
+      this.httpClient.get(this.apiUrl+"/v1/associado/"+id)
+        .subscribe((response: any[]) => this.associados = response);
+    } else {
+      let returnUrl = this.router.url;
+      this.router.navigate(['associado'], { queryParams: { returnUrl }});
+    }
     
-    this.httpClient.get(this.apiUrl+"/v1/associado/"+id)
-      .subscribe((response: any[]) => this.associados = response);
 
   }
 
@@ -46,7 +53,6 @@ export class PautaEditComponent implements OnInit {
     this.stompClient.connect({}, function (frame) {
       console.log('Connected: ' + frame);
       that.stompClient.subscribe('/topics/iniciar', (response) => {
-        debugger;
         that.pauta = JSON.parse(response.body);
         let associado = JSON.parse(sessionStorage.getItem('associado'));
         that.router.navigate(['/voto', that.pauta.id, associado.cpf]);
@@ -55,7 +61,6 @@ export class PautaEditComponent implements OnInit {
   }
 
   iniciar() {
-    debugger;
     this.stompClient.send('/app/iniciar', {}, JSON.stringify({id: this.pauta.id, seconds: 60 }));
   }
 

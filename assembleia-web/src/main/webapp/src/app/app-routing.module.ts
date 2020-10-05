@@ -9,7 +9,7 @@ import { ResumoComponent } from './resumo/resumo.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'associado', pathMatch: 'full' },
+  { path: '', redirectTo: 'pauta', pathMatch: 'full' },
   {
     path: 'associado', component: AssociadoComponent,
     data: { title: 'Ingresso de Associado'}

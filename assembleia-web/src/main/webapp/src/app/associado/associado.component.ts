@@ -43,7 +43,8 @@ export class AssociadoComponent implements OnInit {
     this.httpClient.post(this.apiUrl+"/v1/associado", associado)
       .subscribe((associado) => { 
         sessionStorage.setItem('associado',JSON.stringify(associado))
-        this.router.navigate(['/pauta'])
+        let returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/';
+        this.router.navigate([returnUrl])
       });
 
   }
