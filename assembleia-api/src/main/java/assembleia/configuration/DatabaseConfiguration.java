@@ -29,7 +29,7 @@ public class DatabaseConfiguration {
 	@Bean
 	public DataSource dataSource() throws URISyntaxException {
 		System.out.println("Datasource de produção ativado.");
-		URI dbUri = new URI(env.getProperty("db.url"));
+		URI dbUri = new URI(System.getenv("DATABASE_URL"));
 		
 		String username = dbUri.getUserInfo().split(":")[0];
 		String password = dbUri.getUserInfo().split(":")[1];
